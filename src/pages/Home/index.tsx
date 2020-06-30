@@ -1,7 +1,16 @@
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
+  const navigation = useNavigation();
+
+  function handleNavigateToLogin() {
+    setTimeout(() => {
+      navigation.navigate("Login");
+    }, 5000);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.main}>
@@ -23,9 +32,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-      color: "#F2A951",
-      fontSize: 25,
-  }
+    color: "#F2A951",
+    fontSize: 25,
+  },
 });
 
 export default Home;
