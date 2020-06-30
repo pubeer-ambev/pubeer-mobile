@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
   const navigation = useNavigation();
 
-  function handleNavigateToLogin() {
+  useEffect(() => {
     setTimeout(() => {
       navigation.navigate("Login");
     }, 5000);
-  }
+  }, []);
 
   return (
     <View style={styles.container}>
