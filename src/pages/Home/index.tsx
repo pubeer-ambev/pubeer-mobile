@@ -8,14 +8,13 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate("Login");
-    }, 5000);
+    }, 2000);
   }, []);
 
   return (
     <View style={styles.container}>
       <View style={styles.main}>
         <Image source={require("../../assets/logo.png")} />
-        <Text style={styles.title}>Recriando o conceito de bar</Text>
       </View>
     </View>
   );
@@ -25,11 +24,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 32,
-    backgroundColor: "#272C33",
+    backgroundColor: "#000",
   },
   main: {
     flex: 1,
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   title: {
     color: "#F2A951",
