@@ -31,20 +31,20 @@ const Login = () => {
           Entrar com Facebook
         </Text>
       </RectButton>
-      <RectButton style={[styles.entrar]}>
+      <RectButton style={[styles.entrar]} >
         <Text style={styles.google}>
           <Image source={require("../../assets/google-icon.png")} />
           Entrar com Google
         </Text>
       </RectButton>
-      <RectButton style={[styles.entrar]}>
+      <RectButton style={[styles.entrar]} onPress={navegarParaEntrar} >
         <Text style={styles.email}>
           <Image source={require("../../assets/email-icon.png")} />
           Entrar com E-mail
         </Text>
       </RectButton>
       <Text style={styles.conta}>
-        Não tem uma conta? <Text style={styles.cadastre}> Cadastre-se</Text>
+        Não tem uma conta? <Text style={styles.cadastre} onPress={navegarParaCadastrar}> Cadastre-se</Text>
       </Text>
       <Text style={styles.ajuda}>Precisando de ajuda?</Text>
       <Text style={styles.faleConosco}>Fale conosco</Text>
