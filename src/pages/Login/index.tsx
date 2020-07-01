@@ -1,12 +1,25 @@
 import React from "react";
 import { View, Text, TextInput, StyleSheet, Image, Button } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
+
+
 
 const Login = () => {
+  const navigation = useNavigation();
+
+  function navegarParaEntrar() {
+    navigation.navigate("Entrar");
+  }
+
+  function navegarParaCadastrar() {
+    navigation.navigate("Cadastrar");
+  }
+  
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-      <Image  style={styles.logo} source={require("../../assets/logo-login.png")} />
+      <Image style={styles.logo} source={require("../../assets/logo-login.png")} />
         <RectButton style={[styles.entrar]}>
              <Text style={styles.facebook}>
              <Image source={require("../../assets/face-icon.svg")} /> 
@@ -19,13 +32,16 @@ const Login = () => {
              Entrar com Google
             </Text>
         </RectButton>
-        <RectButton style={[styles.entrar]}>
+        <RectButton style={[styles.entrar]} onPress={navegarParaEntrar}>
              <Text style={styles.email}>
              <Image source={require("../../assets/email-icon.svg")} /> 
              Entrar com E-mail
             </Text>
         </RectButton>
-        <Text style={styles.conta}>Não tem uma conta? <Text style={styles.cadastre}> Cadastre-se</Text></Text>
+        <Text style={styles.conta}>
+          Não tem uma conta? 
+          <Text style={styles.cadastre} onPress={navegarParaCadastrar}> Cadastre-se</Text>
+        </Text>
         <Text style={styles.ajuda}>Precisando de ajuda?</Text>
         <Text style={styles.faleConosco}>Fale conosco</Text>
       </View> 
