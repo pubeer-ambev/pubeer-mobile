@@ -3,8 +3,6 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-import { Svg, Circle, Rect } from "react-native-svg";
-
 const Login = () => {
   const navigation = useNavigation();
 
