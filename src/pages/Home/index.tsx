@@ -31,10 +31,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  title: {
-    color: "#F2A951",
-    fontSize: 25,
-  },
 });
 
 export default Home;

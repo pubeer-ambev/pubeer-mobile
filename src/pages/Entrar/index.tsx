@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, CheckBox } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import FormEmailSenha from "../../utils/FormEmailSenha";
+import { useNavigation } from "@react-navigation/native";
 
 const Entrar = () => {
     const [isSelected, setSelection] = useState(false);
+    const navigation = useNavigation();
 
     function navegarParaEntrar() {
-      return null;
+      navigation.navigate("MenuUsuario");
     }
     return(
         <View style={styles.container}>
