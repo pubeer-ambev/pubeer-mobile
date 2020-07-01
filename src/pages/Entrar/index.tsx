@@ -4,81 +4,73 @@ import { RectButton } from "react-native-gesture-handler";
 import FormEmailSenha from "../../utils/FormEmailSenha";
 
 const Entrar = () => {
-    const [isSelected, setSelection] = useState(false);
+  const [isSelected, setSelection] = useState(false);
 
-    function navegarParaEntrar() {
-      return null;
-    }
-    return(
-        <View style={styles.container}>
-            <View style={styles.main}>
-                <FormEmailSenha />
-                <Text style={[styles.titleInput]}>Esqueceu sua senha?</Text>
-                <Text style={[styles.manterConectado]}> 
-                    <CheckBox 
-                    style={styles.check}
-                    value={isSelected}
-                    onValueChange={setSelection}
-                    />
-                    Manter conectado
-                </Text>
+  function navegarParaEntrar() {
+    return null;
+  }
 
-                <RectButton style={[styles.entrar]} onPress={navegarParaEntrar}>
-                    <Text style={styles.entrarText}>
-                    Entrar
-                    </Text>
-                </RectButton>
-            </View>
-        </View>
-    )
-}
+  return (
+    <View style={styles.container}>
+      <FormEmailSenha />
+      <Text style={[styles.titleInput]}>Esqueceu sua senha?</Text>
+      <Text style={[styles.manterConectado]}>
+        <CheckBox value={isSelected} onValueChange={setSelection} />
+        Manter conectado
+      </Text>
+
+      <View style={[styles.containerButton]}>
+        <RectButton style={[styles.entrar]} onPress={navegarParaEntrar}>
+          <Text style={styles.entrarText}>Entrar</Text>
+        </RectButton>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    backgroundColor: '#000'
+    backgroundColor: "#000",
   },
-  main: {
-    flex: 1
+  containerButton: {
+    alignItems: "center",
   },
   titleInput: {
-    color: '#F2A951',
+    color: "#F2A951",
     fontSize: 16,
-    fontFamily: 'Roboto',
+    fontFamily: "Roboto",
     paddingLeft: 5,
-    textDecorationLine: 'underline',
-    textAlign: 'right',
-    paddingTop: 15
-  },
-  check: {
+    textDecorationLine: "underline",
+    textAlign: "right",
+    paddingTop: 15,
   },
   manterConectado: {
-    color: '#F2A951',
+    color: "#F2A951",
     fontSize: 16,
-    fontFamily: 'Roboto',
-    textAlign: 'center',
-    marginTop: 30
+    fontFamily: "Roboto",
+    textAlign: "center",
+    marginTop: 10,
+    height: 60,
+    maxHeight: 60,
   },
   entrarText: {
-    fontFamily: 'Roboto',
-    fontStyle: 'normal',
-    fontWeight: '500',
-    color: '#000',
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "500",
+    color: "#000",
     fontSize: 20,
-    textAlign: 'center',
-    textTransform: 'uppercase',
-    paddingTop: 10
+    textAlign: "center",
+    textTransform: "uppercase",
+    paddingTop: 10,
   },
-  entrar:{
-    backgroundColor: '#F2A951',
+  entrar: {
+    backgroundColor: "#F2A951",
     width: 170,
     height: 45,
     borderRadius: 15,
-    left: 100,
-    marginTop: 55
-  }
+  },
 });
-
 
 export default Entrar;
