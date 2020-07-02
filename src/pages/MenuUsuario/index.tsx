@@ -15,6 +15,10 @@ const MenuUsuario = () => {
     navigation.navigate("Mesas");
   };
 
+  const handleGetQuiz = () => {
+    navigation.navigate("Quiz");
+  };
+
   return (
     <>
       <View style={styles.container}>
@@ -53,10 +57,12 @@ const MenuUsuario = () => {
               <Text style={styles.textosMenu}>Aquela Galera</Text>
             </View>
             <View>
-              <Image
-                style={styles.imageUsuario}
-                source={require("../../assets/icon-quiz.png")}
-              />
+              <TouchableHighlight onPress={handleGetQuiz}>
+                <Image
+                  style={styles.imageUsuario}
+                  source={require("../../assets/icon-quiz.png")}
+                />
+              </TouchableHighlight>
               <Text style={styles.textosMenu}>Quiz</Text>
             </View>
             <View>
