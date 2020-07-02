@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, SafeAreaView, Platform } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
@@ -15,44 +15,67 @@ const Login = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.logo}>
-        <Image source={require("../../assets/logo-login.png")} />
-        <View>
-          <Text style={styles.slogan}>Recriando o seu conceito de bar</Text>
+    <SafeAreaView style={styles.droidSafeArea}>
+      <View style={styles.container}>
+        <View style={styles.logo}>
+          <Image source={require("../../assets/logo-login.png")} />
+          <View>
+            <Text style={styles.slogan}>Recriando o seu conceito de bar</Text>
+          </View>
         </View>
+        <RectButton style={[styles.entrar]}>
+          <View style={[styles.containerButton, {
+            backgroundColor: "#3D5A99",
+          }]}>
+            <Image
+              source={require("../../assets/face.png")}
+            />
+            <Text style={styles.facebook}>
+              Entrar com Facebook
+        </Text>
+          </View>
+        </RectButton>
+        <RectButton style={[styles.entrar]}>
+          <View style={[styles.containerButton, {
+            backgroundColor: "#FFFFFF",
+          }]}>
+            <Image
+              source={require("../../assets/google-icon.png")}
+            />
+            <Text style={styles.textWhite}>
+              Entrar com Google
+        </Text>
+          </View>
+        </RectButton>
+
+        <RectButton style={[styles.entrar]} onPress={navegarParaEntrar}>
+          <View style={[styles.containerButton, {
+            backgroundColor: "#FFFFFF",
+          }]}>
+            <Image source={require("../../assets/email-icon.png")} />
+            <Text style={styles.textWhite}>
+              Entrar com E-mail
+        </Text>
+          </View>
+        </RectButton>
+
+        <Text style={styles.conta}>
+          Não tem uma conta? <Text style={styles.cadastre} onPress={navegarParaCadastrar}> Cadastre-se</Text>
+        </Text>
+        <Text style={styles.ajuda}>Precisando de ajuda?</Text>
+        <Text style={styles.faleConosco}>Fale conosco</Text>
       </View>
-      <RectButton style={[styles.entrar]}>
-        <Text style={styles.facebook}>
-          <Image
-            style={{ marginRight: 50 }}
-            source={require("../../assets/face.png")}
-          />
-          Entrar com Facebook
-        </Text>
-      </RectButton>
-      <RectButton style={[styles.entrar]} >
-        <Text style={styles.google}>
-          <Image source={require("../../assets/google-icon.png")} />
-          Entrar com Google
-        </Text>
-      </RectButton>
-      <RectButton style={[styles.entrar]} onPress={navegarParaEntrar} >
-        <Text style={styles.email}>
-          <Image source={require("../../assets/email-icon.png")} />
-          Entrar com E-mail
-        </Text>
-      </RectButton>
-      <Text style={styles.conta}>
-        Não tem uma conta? <Text style={styles.cadastre} onPress={navegarParaCadastrar}> Cadastre-se</Text>
-      </Text>
-      <Text style={styles.ajuda}>Precisando de ajuda?</Text>
-      <Text style={styles.faleConosco}>Fale conosco</Text>
-    </View>
+    </SafeAreaView>
+
   );
 };
 
 const styles = StyleSheet.create({
+  droidSafeArea: {
+    flex: 1,
+    backgroundColor: '#F2A951',
+    paddingTop: Platform.OS === 'android' ? 25 : 0
+  },
   container: {
     flex: 1,
     padding: 20,
@@ -68,33 +91,26 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   entrar: {
-    fontFamily: "Roboto",
-    fontStyle: "normal",
-    fontWeight: "500",
     margin: 5,
   },
+  containerButton: {
+    borderRadius: 2,
+    borderColor: '#e1e5e8',
+    width: '100%',
+    height: 48,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 15,
+  },
   facebook: {
-    backgroundColor: "#3D5A99",
-    height: 50,
-    maxHeight: 50,
     color: "#FFFFFF",
     textAlign: "center",
-    padding: 10,
+    padding: 20,
     fontSize: 20,
   },
-  google: {
-    backgroundColor: "#FFFFFF",
-    height: 50,
-    maxHeight: 50,
-    padding: 10,
-    color: "#757575",
-    textAlign: "center",
-    fontSize: 20,
-  },
-  email: {
-    backgroundColor: "#FFFFFF",
-    height: 50,
-    maxHeight: 50,
+  textWhite: {
+    padding: 20,
     color: "#757575",
     textAlign: "center",
     fontSize: 20,

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Platform, SafeAreaView, Image } from "react-native";
 import FormEmailSenha from "../../utils/FormEmailSenha";
 import { RectButton } from "react-native-gesture-handler";
 
@@ -9,8 +9,11 @@ const Cadastrar = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
+    <SafeAreaView style={styles.droidSafeArea}>
+      <View style={styles.container}>
+        <View style={styles.logo}>
+          <Image source={require("../../assets/logo-login.png")} />
+        </View>
         <FormEmailSenha />
         <View style={[styles.containerButton]}>
           <RectButton style={[styles.cadastrar]} onPress={navegarParaEntrar}>
@@ -18,19 +21,24 @@ const Cadastrar = () => {
           </RectButton>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  logo: {
+    padding: 14,
+  },
+  droidSafeArea: {
+    flex: 1,
+    backgroundColor: '#F2A951',
+    paddingTop: Platform.OS === 'android' ? 25 : 0
+  },
   container: {
     flex: 1,
     padding: 20,
     justifyContent: "center",
     backgroundColor: "#000000",
-  },
-  main: {
-    flex: 1,
   },
   containerButton: {
     alignItems: "center",

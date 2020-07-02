@@ -7,6 +7,7 @@ import {
   FlatList,
   SafeAreaView,
   Image,
+  Platform,
 } from "react-native";
 import Constants from "expo-constants";
 
@@ -25,7 +26,7 @@ const MESAS = [
 
 const Mesas = () => {
   return (
-    <>
+    <SafeAreaView style={styles.droidSafeArea}>
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>Mesas</Text>
@@ -80,11 +81,16 @@ const Mesas = () => {
           </View>
         </View>
       </View>
-    </>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  droidSafeArea: {
+    flex: 1,
+    backgroundColor: '#F2A951',
+    paddingTop: Platform.OS === 'android' ? 25 : 0
+  },
   container: {
     flex: 1,
     backgroundColor: "#000",
@@ -92,7 +98,7 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: "#F2A951",
     width: "100%",
-    height: 100,
+    height: 80,
     flexDirection: "column",
   },
   title: {
@@ -100,7 +106,7 @@ const styles = StyleSheet.create({
     color: "#FFF",
     fontSize: 36,
     fontWeight: "bold",
-    marginTop: 40,
+    marginTop: 20,
   },
   mesasDisponiveis: {
     backgroundColor: "#F2A951",

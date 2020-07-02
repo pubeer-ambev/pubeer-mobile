@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, CheckBox } from "react-native";
+import { View, StyleSheet, Text, CheckBox, Platform, SafeAreaView } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import FormEmailSenha from "../../utils/FormEmailSenha";
 import { useNavigation } from "@react-navigation/native";
@@ -12,28 +12,37 @@ const Entrar = () => {
     navigation.navigate("MenuUsuario");
   }
   return (
-    <View style={styles.container}>
-      <FormEmailSenha />
-      <Text style={[styles.titleInput]}>Esqueceu sua senha?</Text>
-      <Text style={[styles.manterConectado]}>
-        <CheckBox value={isSelected} onValueChange={setSelection} />
+    <SafeAreaView style={styles.droidSafeArea}>
+      <View style={styles.container}>
+        <FormEmailSenha />
+        <Text style={[styles.titleInput]}>Esqueceu sua senha?</Text>
+        <Text style={[styles.manterConectado]}>
+          <CheckBox value={isSelected} onValueChange={setSelection} />
         Manter conectado
       </Text>
 
-      <View style={[styles.containerButton]}>
-        <RectButton style={[styles.entrar]} onPress={navegarParaEntrar}>
-          <Text style={styles.entrarText}>Entrar</Text>
-        </RectButton>
+        <View style={[styles.containerButton]}>
+          <RectButton style={[styles.entrar]} onPress={navegarParaEntrar}>
+            <Text style={styles.entrarText}>Entrar</Text>
+          </RectButton>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
+
   );
 };
 
 const styles = StyleSheet.create({
+  droidSafeArea: {
+    flex: 1,
+    backgroundColor: '#F2A951',
+    paddingTop: Platform.OS === 'android' ? 25 : 0
+  },
   container: {
     flex: 1,
-    padding: 24,
-    backgroundColor: "#000",
+    padding: 20,
+    justifyContent: "center",
+    backgroundColor: "#000000",
   },
   containerButton: {
     alignItems: "center",
