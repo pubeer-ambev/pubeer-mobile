@@ -1,12 +1,19 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Image } from "react-native";
 
-const CabecalhoMenus = (props: any) => {
+interface Props {
+    title: string;
+    subtitle: string;
+    image: string;
+}
+
+const CabecalhoMenus = (props: Props) => {
     return (
         <>
         <View style={styles.fundo}>
+            <Image source={require(props.image)} />
             <Text style={styles.titlePagina}>{props.title}</Text>
-            <Text style={styles.title}>Mestre Cervejeiro</Text>
+    <Text style={styles.title}>{props.subtitle}</Text>
         </View>
         </>
     ) 
