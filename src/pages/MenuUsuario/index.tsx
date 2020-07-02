@@ -1,7 +1,20 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableHighlight,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const MenuUsuario = () => {
+  const navigation = useNavigation();
+
+  const handleGetMesas = () => {
+    navigation.navigate("Mesas");
+  };
+
   return (
     <>
       <View style={styles.container}>
@@ -24,10 +37,12 @@ const MenuUsuario = () => {
           </View>
           <View style={styles.menus}>
             <View>
-              <Image
-                style={styles.imageUsuario}
-                source={require("../../assets/icon-mesas.png")}
-              />
+              <TouchableHighlight onPress={handleGetMesas}>
+                <Image
+                  style={styles.imageUsuario}
+                  source={require("../../assets/icon-mesas.png")}
+                />
+              </TouchableHighlight>
               <Text style={styles.textosMenu}>Mesas</Text>
             </View>
             <View>
@@ -139,9 +154,9 @@ const styles = StyleSheet.create({
   menus: {
     flexDirection: "row",
     flexWrap: "wrap",
-    alignContent: 'center',
+    alignContent: "center",
     marginTop: 80,
-    padding: 6
+    padding: 6,
   },
   textosMenu: {
     color: "#FFF",
@@ -154,19 +169,19 @@ const styles = StyleSheet.create({
     height: 100,
     flexDirection: "row",
     flexWrap: "wrap",
-    paddingTop: 15
+    paddingTop: 15,
   },
   imageRodape: {
     marginLeft: 60,
-    alignSelf: 'center',
-    height: 47
+    alignSelf: "center",
+    height: 47,
   },
   textosRodape: {
     marginLeft: 55,
     marginTop: 5,
     flex: 1,
-    alignSelf: 'center',
-  }
+    alignSelf: "center",
+  },
 });
 
 export default MenuUsuario;
