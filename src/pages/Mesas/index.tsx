@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Text,
   StyleSheet,
@@ -10,6 +10,8 @@ import {
   Platform,
 } from "react-native";
 import Constants from "expo-constants";
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from "@react-navigation/native"
 
 const MESAS = [
   { id: "1", title: "Corona", quantidade: "8/20" },
@@ -25,11 +27,33 @@ const MESAS = [
 ];
 
 const Mesas = () => {
+
+  const navigation = useNavigation();
+
+  function handleNavigateBack() {
+    navigation.goBack();
+  }
+
+  function handleNavigateChat(chatName: any) {
+    navigation.navigate("Chat", {
+      chatName,
+    })
+  }
+
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <View style={styles.container}>
+
         <View style={styles.header}>
-          <Text style={styles.title}>Mesas</Text>
+          <View style={{ marginLeft: 10,  width: '10%'}}>
+            <TouchableOpacity onPress={handleNavigateBack}>
+              <AntDesign name="left" size={40} color="#FFFF" />
+            </TouchableOpacity>
+          </View>
+
+          <View style={{ width: '80%' }}>
+            <Text style={styles.title}>Mesas</Text>
+          </View>
         </View>
 
         <View style={{ height: 20 }}></View>
@@ -52,12 +76,13 @@ const Mesas = () => {
               return (
                 <View style={styles.item}>
                   <Text style={styles.titleItem}>{item.title}</Text>
-
                   <View style={{ flexDirection: "row" }}>
                     <Text style={styles.titleQuantidade}>
                       {item.quantidade}
                     </Text>
-                    <Image source={require("../../assets/entrarMesa.png")} />
+                    <TouchableOpacity onPress={() => handleNavigateChat(item.title)} >
+                      <Image source={require("../../assets/entrarMesa.png")} />
+                    </TouchableOpacity>
                   </View>
                 </View>
               );
@@ -81,7 +106,7 @@ const Mesas = () => {
           </View>
         </View>
       </View>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 };
 
@@ -99,14 +124,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#F2A951",
     width: "100%",
     height: 80,
-    flexDirection: "column",
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   title: {
-    alignSelf: "center",
     color: "#FFF",
-    fontSize: 36,
+    fontSize: 34,
     fontWeight: "bold",
-    marginTop: 20,
+    textAlign: 'center'
   },
   mesasDisponiveis: {
     backgroundColor: "#F2A951",

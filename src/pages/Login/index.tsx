@@ -35,6 +35,7 @@ const Login = () => {
         </Text>
           </View>
         </RectButton>
+
         <RectButton style={[styles.entrar]}>
           <View style={[styles.containerButton, {
             backgroundColor: "#FFFFFF",
@@ -94,19 +95,18 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   containerButton: {
-    borderRadius: 2,
+    borderRadius: 4,
     borderColor: '#e1e5e8',
-    width: '100%',
-    height: 48,
+    height: 50,
+    maxHeight: 50,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 15,
   },
   facebook: {
     color: "#FFFFFF",
-    textAlign: "center",
     padding: 20,
+    textAlign: "center",
     fontSize: 20,
   },
   textWhite: {
