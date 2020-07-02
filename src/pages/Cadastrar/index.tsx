@@ -11,9 +11,6 @@ const Cadastrar = () => {
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <View style={styles.container}>
-        <View style={styles.logo}>
-          <Image source={require("../../assets/logo-login.png")} />
-        </View>
         <FormEmailSenha />
         <View style={[styles.containerButton]}>
           <RectButton style={[styles.cadastrar]} onPress={navegarParaEntrar}>
