@@ -8,6 +8,7 @@ import Entrar from "./pages/Entrar";
 import Cadastrar from "./pages/Cadastrar";
 import MenuUsuario from "./pages/MenuUsuario";
 import Mesas from "./pages/Mesas";
+import Quiz from "./pages/Quiz";
 
 const AppStack = createStackNavigator();
 
@@ -24,6 +25,7 @@ const Routes = () => {
         <AppStack.Screen name="Cadastrar" component={Cadastrar} />
         <AppStack.Screen name="MenuUsuario" component={MenuUsuario} />
         <AppStack.Screen name="Mesas" component={Mesas} />
+        <AppStack.Screen name="Quiz" component={Quiz} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
