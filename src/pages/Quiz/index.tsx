@@ -23,7 +23,7 @@ const ARR_PERGUNTAS: string[] = [
 const ARR_ALTERNATIVAS1: any = [
   { a: "Stout, Abadia e Pilsen" },
   { b: "Lager, Ale e Lambic" },
-  { c: "Clara, Escuta e Turva" },
+  { c: "Clara, Escura e Turva" },
 ];
 
 const ARR_ALTERNATIVAS2: any = [{ a: "1998" }, { b: "1999" }, { c: "2000" }];
