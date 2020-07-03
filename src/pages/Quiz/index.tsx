@@ -1,84 +1,202 @@
-import React, { useState } from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+  Platform,
+  TouchableHighlight,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from "@expo/vector-icons";
 
 const RESPOSTA_CERTA = 2;
-const Quiz = () => {
-  const [resposta, setResposta] = useState<Number>(0);
 
-  function handleResposta(id: number) {
-    if (id === RESPOSTA_CERTA) {
-      setResposta(id);
+const ARR_PERGUNTAS: string[] = [
+  "",
+  "Quais são as três famílias de cervejas?",
+  "Quando a AMBEV foi fundada?",
+];
+
+const ARR_ALTERNATIVAS1: any = [
+  { a: "Stout, Abadia e Pilsen" },
+  { b: "Lager, Ale e Lambic" },
+  { c: "Clara, Escura e Turva" },
+];
+
+const ARR_ALTERNATIVAS2: any = [{ a: "1998" }, { b: "1999" }, { c: "2000" }];
+
+const Quiz = () => {
+  const [resposta, setResposta] = useState<number>(0);
+  const [ocultar1, setOcultar1] = useState<boolean>(false);
+  const [ocultar2, setOcultar2] = useState<boolean>(false);
+  const [ocultar3, setOcultar3] = useState<boolean>(false);
+  const [alternativa1, setAlternativa1] = useState<boolean>(false);
+  const [alternativa2, setAlternativa2] = useState<boolean>(false);
+  const [alternativa3, setAlternativa3] = useState<boolean>(false);
+  const [pergunta, setPergunta] = useState<number>(0);
+  const [indexAtual, setIndexAtual] = useState<number>();
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    handlePerguntasRespostas();
+  }, []);
+
+  function handleNavigateBack() {
+    navigation.goBack();
+  }
+
+  function handlePerguntasRespostas() {
+    let index: any = Number(Math.random() * (3 - 1) + 1);
+    index = parseInt(index);
+    index === 1 && indexAtual === 1 ? index = 2 : index = 1;
+    setIndexAtual(index);
+    setOcultar1(false);
+    setOcultar2(false);
+    setOcultar3(false);
+
+    const perguntaEscolhida: any = ARR_PERGUNTAS[index];
+    setPergunta(perguntaEscolhida);
+    if (index === 1) {
+      setAlternativa1(ARR_ALTERNATIVAS1[0].a);
+      setAlternativa2(ARR_ALTERNATIVAS1[1].b);
+      setAlternativa3(ARR_ALTERNATIVAS1[2].c);
     } else {
-      setResposta(id);
+      setAlternativa1(ARR_ALTERNATIVAS2[0].a);
+      setAlternativa2(ARR_ALTERNATIVAS2[1].b);
+      setAlternativa3(ARR_ALTERNATIVAS2[2].c);
     }
   }
 
+  function handleRespostaAleatoria() {
+    const resposta: any = Number(Math.random() * (4 - 1) + 1);
+    handleResposta(parseInt(resposta));
+  }
+
+  function handleRespostaAjuda() {
+    let id: any = Number(Math.random() * (4 - 1) + 1);
+    if (ocultar1 === true || ocultar2 === true || ocultar3 === true) {
+      return;
+    }
+    switch (parseInt(id)) {
+      case 1:
+        setOcultar1(true);
+        break;
+      case 2:
+        setOcultar1(true);
+        break;
+      case 3:
+        setOcultar3(true);
+        break;
+      default:
+        break;
+    }
+  }
+
+  function handleResposta(id: number) {
+    setResposta(id);
+    setTimeout(() => {
+      setResposta(0);
+      handlePerguntasRespostas();
+    }, 1000);
+  }
+
   return (
-    <>
+    <SafeAreaView style={styles.droidSafeArea}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>Quiz</Text>
+          <View style={{ marginLeft: 10, width: "10%" }}>
+            <TouchableOpacity onPress={handleNavigateBack}>
+              <AntDesign name="left" size={40} color="#FFFF" />
+            </TouchableOpacity>
+          </View>
+          <View style={{ width: "80%" }}>
+            <Text style={styles.title}>Quiz</Text>
+          </View>
         </View>
         <View style={styles.main}>
-          <Text style={styles.perguntas}>
-            Quais são as três famílias de cervejas?
+          <Text style={styles.perguntas}>{pergunta}</Text>
+          <Text
+            style={[
+              styles.alternativas,
+              { marginTop: 65 },
+              resposta != RESPOSTA_CERTA && resposta === 1 ? styles.errado : {},
+              ocultar1 ? styles.ocultar : {},
+            ]}
+            onPress={() => handleResposta(1)}
+          >
+            {alternativa1}
           </Text>
-          <Text 
-          style={[
-            styles.alternativas, 
-            { marginTop: 65 }, 
-            resposta != RESPOSTA_CERTA && resposta === 1 ? styles.errado : {}
-          ]}
-          onPress={() => handleResposta(1)}
+          <Text
+            style={[
+              styles.alternativas,
+              resposta == RESPOSTA_CERTA && resposta === 2
+                ? styles.correto
+                : {},
+              ocultar2 ? styles.ocultar : {},
+            ]}
+            onPress={() => handleResposta(2)}
           >
-            Stout, Abadia e Pilsen
+            {alternativa2}
           </Text>
-          <Text 
-          style={[
-            styles.alternativas, 
-            resposta == RESPOSTA_CERTA && resposta === 2 ? styles.correto : {}
-          ]}
-          onPress={() => handleResposta(2)}
+          <Text
+            style={[
+              styles.alternativas,
+              resposta != RESPOSTA_CERTA && resposta === 3 ? styles.errado : {},
+              ocultar3 ? styles.ocultar : {},
+            ]}
+            onPress={() => handleResposta(3)}
           >
-            Lager, Ale e Lambic</Text>
-          <Text 
-          style={[
-            styles.alternativas, 
-            resposta != RESPOSTA_CERTA && resposta === 3 ? styles.errado : {}
-          ]}
-          onPress={() => handleResposta(3)}
-          >
-            Clara, Escuta e Turva</Text>
+            {alternativa3}
+          </Text>
         </View>
       </View>
       <View style={styles.rodape}>
         <View>
-          <Image
-            style={styles.imageRodape}
-            source={require("../../assets/cerveja-ajuda-quiz.png")}
-          />
-          <Text style={styles.textosRodape}>Ajuda</Text>
+          <TouchableHighlight onPress={handleRespostaAjuda}>
+            <Image
+              style={[styles.imageRodape]}
+              source={require("../../assets/cerveja-ajuda-quiz.png")}
+            />
+          </TouchableHighlight>
+
+          <Text style={[styles.textosRodape, ocultar1 ? styles.ocultar : {}]}>
+            Ajuda
+          </Text>
         </View>
         <View>
-          <Image
-            style={styles.imageRodape}
-            source={require("../../assets/cerveja-pular.png")}
-          />
-          <Text style={styles.textosRodape}>Segurança</Text>
+          <TouchableHighlight onPress={handlePerguntasRespostas}>
+            <Image
+              style={[styles.imageRodape, ocultar2 ? styles.ocultar : {}]}
+              source={require("../../assets/cerveja-pular.png")}
+            />
+          </TouchableHighlight>
+
+          <Text style={[styles.textosRodape]}>Pular</Text>
         </View>
         <View>
-          <Image
-            style={styles.imageRodape}
-            source={require("../../assets/aleatorio.png")}
-          />
-          <Text style={styles.textosRodape}>Ajuda</Text>
+          <TouchableHighlight onPress={handleRespostaAleatoria}>
+            <Image
+              style={[styles.imageRodape]}
+              source={require("../../assets/aleatorio.png")}
+            />
+          </TouchableHighlight>
+
+          <Text style={[styles.textosRodape]}>Aletório</Text>
         </View>
       </View>
-    </>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  droidSafeArea: {
+    flex: 1,
+    backgroundColor: "#F2A951",
+    paddingTop: Platform.OS === "android" ? 25 : 0,
+  },
   container: {
     flex: 1,
     backgroundColor: "#000",
@@ -86,21 +204,21 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: "#F2A951",
     width: "100%",
-    height: 120,
-    flexDirection: "column",
+    height: 80,
+    flexDirection: "row",
+    alignItems: "center",
   },
   title: {
-    alignSelf: "center",
     color: "#FFF",
-    fontSize: 36,
+    fontSize: 34,
     fontWeight: "bold",
-    marginTop: 50,
+    textAlign: "center",
   },
   main: {
     padding: 24,
   },
   perguntas: {
-    marginTop: 50,
+    marginTop: 25,
     padding: 40,
     borderRadius: 22,
     backgroundColor: "#E7D3BC",
@@ -140,10 +258,25 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   correto: {
-    backgroundColor: '#34A853'
-  }, 
+    backgroundColor: "#34A853",
+  },
   errado: {
-    backgroundColor: '#EB4335'
+    backgroundColor: "#EB4335",
+  },
+  time: {
+    backgroundColor: "#FFF",
+    width: "30%",
+    height: 80,
+    alignSelf: "center",
+  },
+  contador: {
+    textAlign: "center",
+    paddingTop: 10,
+    fontSize: 60,
+    fontWeight: "bold",
+  },
+  ocultar: {
+    display: "none",
   },
 });
 
