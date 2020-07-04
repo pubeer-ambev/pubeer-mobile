@@ -6,7 +6,6 @@ Ao abrir o aplicativo, o usuário tem opções de:
     - Solicitar sua bebida no Ze delivey pelo Pubeer;
 
 Seu lema é, "Reiventando o conceito do bar...".
-
 <br />
 <p align="center">
 </p>
@@ -20,7 +19,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Expo](https://expo.io/)
 
 </br>
-
 ## :hammer: Ferramentas
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Figma](https://www.figma.com/)
