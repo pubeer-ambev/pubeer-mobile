@@ -23,13 +23,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [TypeScript](https://www.typescriptlang.org/)
 - [React Native](https://facebook.github.io/react-native/)
 - [Expo](https://expo.io/)
-
+- [Dialogflow API](https://cloud.google.com/dialogflow/docs/reference/rest/v2-overview)
 </br>
 
 ## :hammer: Ferramentas
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Figma](https://www.figma.com/)
-- [Dialogflow API](https://cloud.google.com/dialogflow/docs/reference/rest/v2-overview)
 </br>
 
 ## 🔥 Instalação
