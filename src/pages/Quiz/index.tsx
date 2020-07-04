@@ -195,7 +195,7 @@ const Quiz = () => {
               source={require("../../assets/random.png")}
             />
           </TouchableOpacity>
-          <Text style={[styles.textosRodape]}>Aletório</Text>
+          <Text style={[styles.textosRodape]}>Aleatório</Text>
         </View>
       </View>
     </SafeAreaView>

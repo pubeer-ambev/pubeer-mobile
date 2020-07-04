@@ -102,7 +102,7 @@ const Mesas = () => {
               style={styles.imageRodape}
               source={require("../../assets/convidarMesa.png")}
             />
-            <Text style={styles.textosRodape}>Configurações</Text>
+            <Text style={styles.textosRodape}>Convidar para mesa</Text>
           </View>
         </View>
       </View>

@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   nomeUsuario: {
     textAlign: "left",
     color: "#FFF",
-    fontSize: 26,
+    fontSize: 30,
     fontWeight: "bold",
     marginLeft: 25,
     marginTop: 10,
@@ -176,11 +176,11 @@ const styles = StyleSheet.create({
     marginLeft: 25,
   },
   tampinhas: {
-    marginTop: 50,
+    marginTop: 45,
     backgroundColor: "#8F5236",
     height: 65,
     width: 300,
-    borderRadius: 30,
+    borderRadius: 20,
     alignSelf: "center",
   },
   textos: {
