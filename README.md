@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Pubeer" src="./src/assets/login-entrar.png" width="250px" />
+  <img alt="Pubeer" src="./src/assets/logo-pubeer-readme.png" width="250px" />
   <br/>
 </h1>
 ## 💻 Projeto
@@ -27,6 +27,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## :hammer: Ferramentas
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Figma](https://www.figma.com/)
+- [Dialogflow API](https://cloud.google.com/dialogflow/docs/reference/rest/v2-overview)
 </br>
 
 ## 🔥 Instalação
