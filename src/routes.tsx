@@ -10,6 +10,7 @@ import MenuUsuario from "./pages/MenuUsuario";
 import Mesas from "./pages/Mesas";
 import Chat from "./pages/Chat";
 import Quiz from "./pages/Quiz";
+import Ajuda from "./pages/Ajuda";
 
 const AppStack = createStackNavigator();
 
@@ -25,6 +26,7 @@ const Routes = () => {
         <AppStack.Screen name="Entrar" component={Entrar} />
         <AppStack.Screen name="Cadastrar" component={Cadastrar} />
         <AppStack.Screen name="MenuUsuario" component={MenuUsuario} />
+        <AppStack.Screen name="Ajuda" component={Ajuda} />
         <AppStack.Screen name="Mesas" component={Mesas} />
         <AppStack.Screen name="Chat" component={Chat} />
         <AppStack.Screen name="Quiz" component={Quiz} />

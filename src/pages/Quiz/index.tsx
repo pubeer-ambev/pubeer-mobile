@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   SafeAreaView,
   Platform,
-  TouchableHighlight,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
@@ -170,32 +169,32 @@ const Quiz = () => {
 
       <View style={styles.rodape}>
         <View style={{ marginBottom: 10 }}>
-          <TouchableHighlight onPress={handleRespostaAjuda}>
+          <TouchableOpacity onPress={handleRespostaAjuda}>
             <Image
               style={[styles.imageRodape]}
               source={require("../../assets/help.png")}
             />
-          </TouchableHighlight>
+          </TouchableOpacity>
           <Text style={[styles.textosRodape, ocultar1 ? styles.ocultar : {}]}>
             Ajuda
           </Text>
         </View>
         <View style={{ marginBottom: 10 }}>
-          <TouchableHighlight onPress={handlePerguntasRespostas}>
+          <TouchableOpacity onPress={handlePerguntasRespostas}>
             <Image
               style={[styles.imageRodape, ocultar2 ? styles.ocultar : {}]}
               source={require("../../assets/cerveja-pular.png")}
             />
-          </TouchableHighlight>
+          </TouchableOpacity>
           <Text style={[styles.textosRodape]}>Pular</Text>
         </View>
         <View style={{ marginBottom: 10 }}>
-          <TouchableHighlight onPress={handleRespostaAleatoria}>
+          <TouchableOpacity onPress={handleRespostaAleatoria}>
             <Image
               style={[styles.imageRodape]}
               source={require("../../assets/random.png")}
             />
-          </TouchableHighlight>
+          </TouchableOpacity>
           <Text style={[styles.textosRodape]}>Aletório</Text>
         </View>
       </View>

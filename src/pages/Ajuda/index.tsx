@@ -11,44 +11,36 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { IconButton } from "react-native-paper";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { GiftedChat, Send, Bubble } from "react-native-gifted-chat";
 import { Dialogflow_V2 } from "react-native-dialogflow";
 import { dialogflowConfig } from "../../../config";
 
 const BOT_USER = {
   _id: 2,
-  name: "Simulation user",
+  name: "PubeerBot",
 };
 
-interface Params {
-  chatName: string;
-}
-
-const Chat = () => {
+const Ajuda = () => {
   const [messages, setMessages] = useState([
     {
       _id: 1,
-      text: `Fala galera`,
+      text: `Olá, sou o PubeerBot, assistente virtual do Pubeer. Qual seu nome?`,
       createdAt: new Date(),
       user: BOT_USER,
     },
   ]);
 
-  // useEffect(() => {
-  //   Dialogflow_V2.setConfiguration(
-  //     dialogflowConfig.client_email,
-  //     dialogflowConfig.private_key,
-  //     Dialogflow_V2.LANG_PORTUGUESE_BRAZIL,
-  //     dialogflowConfig.project_id
-  //   );
-  // }, []);
+  useEffect(() => {
+    Dialogflow_V2.setConfiguration(
+      dialogflowConfig.client_email,
+      dialogflowConfig.private_key,
+      Dialogflow_V2.LANG_PORTUGUESE_BRAZIL,
+      dialogflowConfig.project_id
+    );
+  }, []);
 
   const navigation = useNavigation();
-
-  const route = useRoute();
-
-  const routeParams = route.params as Params;
 
   function handleNavigateBack() {
     navigation.goBack();
@@ -147,7 +139,7 @@ const Chat = () => {
           </View>
 
           <View style={{ width: "80%" }}>
-            <Text style={styles.title}>{routeParams.chatName}</Text>
+            <Text style={styles.title}>Ajuda</Text>
           </View>
 
           <View style={{ width: "10%" }}>
@@ -159,7 +151,7 @@ const Chat = () => {
         </View>
         <View style={{ flex: 1 }}>
           <GiftedChat
-            placeholder={"Fale com a galera"}
+            placeholder={"Nos conte seu problema"}
             alwaysShowSend={true}
             showUserAvatar
             messages={messages}
@@ -173,7 +165,6 @@ const Chat = () => {
             renderLoading={renderLoading}
             renderBubble={renderBubble}
           />
-          <Send label={"Enviar"} containerStyle={{ backgroundColor: "red" }} />
         </View>
       </View>
     </SafeAreaView>
@@ -201,7 +192,7 @@ const styles = StyleSheet.create({
     height: 80,
     flexDirection: "row",
     alignItems: "center",
-    padding: 10
+    padding: 10,
   },
   more: {
     width: 40,
@@ -240,4 +231,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Chat;
+export default Ajuda;
