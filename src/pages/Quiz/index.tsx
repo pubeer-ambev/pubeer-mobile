@@ -38,6 +38,7 @@ const Quiz = () => {
   const [alternativa3, setAlternativa3] = useState<boolean>(false);
   const [pergunta, setPergunta] = useState<number>(0);
   const [indexAtual, setIndexAtual] = useState<number>();
+
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -51,7 +52,7 @@ const Quiz = () => {
   function handlePerguntasRespostas() {
     let index: any = Number(Math.random() * (3 - 1) + 1);
     index = parseInt(index);
-    index === 1 && indexAtual === 1 ? index = 2 : index = 1;
+    index === 1 && indexAtual === 1 ? (index = 2) : (index = 1);
     setIndexAtual(index);
     setOcultar1(false);
     setOcultar2(false);
@@ -116,74 +117,85 @@ const Quiz = () => {
             <Text style={styles.title}>Quiz</Text>
           </View>
         </View>
+
         <View style={styles.main}>
-          <Text style={styles.perguntas}>{pergunta}</Text>
-          <Text
-            style={[
-              styles.alternativas,
-              { marginTop: 65 },
-              resposta != RESPOSTA_CERTA && resposta === 1 ? styles.errado : {},
-              ocultar1 ? styles.ocultar : {},
-            ]}
-            onPress={() => handleResposta(1)}
-          >
-            {alternativa1}
-          </Text>
-          <Text
-            style={[
-              styles.alternativas,
-              resposta == RESPOSTA_CERTA && resposta === 2
-                ? styles.correto
-                : {},
-              ocultar2 ? styles.ocultar : {},
-            ]}
-            onPress={() => handleResposta(2)}
-          >
-            {alternativa2}
-          </Text>
-          <Text
-            style={[
-              styles.alternativas,
-              resposta != RESPOSTA_CERTA && resposta === 3 ? styles.errado : {},
-              ocultar3 ? styles.ocultar : {},
-            ]}
-            onPress={() => handleResposta(3)}
-          >
-            {alternativa3}
-          </Text>
+          <View>
+            <Text style={styles.perguntas}>{pergunta}</Text>
+          </View>
+
+          <View style={[styles.containerAlternativas, { marginTop: 50 }]}>
+            <Text
+              style={[
+                styles.alternativas,
+                resposta != RESPOSTA_CERTA && resposta === 1
+                  ? styles.errado
+                  : {},
+                ocultar1 ? styles.ocultar : {},
+              ]}
+              onPress={() => handleResposta(1)}
+            >
+              {alternativa1}
+            </Text>
+          </View>
+          <View style={styles.containerAlternativas}>
+            <Text
+              style={[
+                styles.alternativas,
+                resposta == RESPOSTA_CERTA && resposta === 2
+                  ? styles.correto
+                  : {},
+                ocultar2 ? styles.ocultar : {},
+              ]}
+              onPress={() => handleResposta(2)}
+            >
+              {alternativa2}
+            </Text>
+          </View>
+          <View style={styles.containerAlternativas}>
+            <Text
+              style={[
+                styles.alternativas,
+                resposta != RESPOSTA_CERTA && resposta === 3
+                  ? styles.errado
+                  : {},
+                ocultar3 ? styles.ocultar : {},
+              ]}
+              onPress={() => handleResposta(3)}
+            >
+              {alternativa3}
+            </Text>
+          </View>
         </View>
       </View>
+
       <View style={styles.rodape}>
-        <View>
+        <View style={{ marginBottom: 10 }}>
           <TouchableHighlight onPress={handleRespostaAjuda}>
             <Image
               style={[styles.imageRodape]}
-              source={require("../../assets/cerveja-ajuda-quiz.png")}
+              source={require("../../assets/help.png")}
             />
           </TouchableHighlight>
-
           <Text style={[styles.textosRodape, ocultar1 ? styles.ocultar : {}]}>
             Ajuda
           </Text>
         </View>
-        <View>
+        <View style={{ marginBottom: 10 }}>
           <TouchableHighlight onPress={handlePerguntasRespostas}>
             <Image
               style={[styles.imageRodape, ocultar2 ? styles.ocultar : {}]}
               source={require("../../assets/cerveja-pular.png")}
             />
           </TouchableHighlight>
-
           <Text style={[styles.textosRodape]}>Pular</Text>
         </View>
-        <View>
+        <View style={{ marginBottom: 10 }}>
           <TouchableHighlight onPress={handleRespostaAleatoria}>
             <Image
               style={[styles.imageRodape]}
-              source={require("../../assets/aleatorio.png")}
+              source={require("../../assets/random.png")}
             />
           </TouchableHighlight>
-
           <Text style={[styles.textosRodape]}>Aletório</Text>
         </View>
       </View>
@@ -218,55 +230,50 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   perguntas: {
-    marginTop: 25,
-    padding: 40,
+    padding: 18,
     borderRadius: 22,
     backgroundColor: "#E7D3BC",
-    alignSelf: "center",
-    fontSize: 36,
+    textAlign: "center",
+    fontSize: 28,
+    lineHeight: 40,
     fontWeight: "bold",
   },
-  alternativas: {
-    marginTop: 35,
-    paddingTop: 20,
-    paddingLeft: 75,
-    paddingRight: 75,
-    paddingBottom: 20,
-    borderRadius: 22,
+  containerAlternativas: {
+    justifyContent: "center",
+    margin: 10,
+    height: 60,
+    borderRadius: 20,
     backgroundColor: "#E7D3BC",
-    alignSelf: "center",
-    fontSize: 18,
+  },
+  alternativas: {
+    textAlign: "center",
+    fontSize: 20,
   },
   rodape: {
     backgroundColor: "#F2A951",
-    width: 500,
-    height: 100,
-    flexDirection: "row",
-    flexWrap: "wrap",
+    width: "100%",
+    height: 80,
     paddingTop: 15,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
   },
   imageRodape: {
-    marginLeft: 60,
+    width: 40,
+    height: 40,
     alignSelf: "center",
-    height: 43,
   },
   textosRodape: {
-    marginLeft: 55,
-    marginTop: 5,
-    flex: 1,
-    alignSelf: "center",
-    fontWeight: "bold",
+    fontSize: 15,
   },
   correto: {
-    backgroundColor: "#34A853",
+    color: "#34A853",
   },
   errado: {
-    backgroundColor: "#EB4335",
+    color: "#EB4335",
   },
   time: {
-    backgroundColor: "#FFF",
-    width: "30%",
-    height: 80,
+    color: "#FFF",
     alignSelf: "center",
   },
   contador: {

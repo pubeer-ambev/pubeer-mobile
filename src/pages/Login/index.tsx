@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, SafeAreaView, Platform } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  SafeAreaView,
+  Platform,
+} from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
@@ -23,59 +30,68 @@ const Login = () => {
             <Text style={styles.slogan}>Recriando o seu conceito de bar</Text>
           </View>
         </View>
+        
         <RectButton style={[styles.entrar]}>
-          <View style={[styles.containerButton, {
-            backgroundColor: "#3D5A99",
-          }]}>
-            <Image
-              source={require("../../assets/face.png")}
-            />
-            <Text style={styles.facebook}>
-              Entrar com Facebook
-        </Text>
+          <View
+            style={[
+              styles.containerButton,
+              {
+                backgroundColor: "#3D5A99",
+              },
+            ]}
+          >
+            <Image source={require("../../assets/face.png")} />
+            <Text style={styles.facebook}>Entrar com Facebook</Text>
           </View>
         </RectButton>
 
         <RectButton style={[styles.entrar]}>
-          <View style={[styles.containerButton, {
-            backgroundColor: "#FFFFFF",
-          }]}>
-            <Image
-              source={require("../../assets/google-icon.png")}
-            />
-            <Text style={styles.textWhite}>
-              Entrar com Google
-        </Text>
+          <View
+            style={[
+              styles.containerButton,
+              {
+                backgroundColor: "#FFFFFF",
+              },
+            ]}
+          >
+            <Image source={require("../../assets/google-icon.png")} />
+            <Text style={styles.textWhite}>Entrar com Google</Text>
           </View>
         </RectButton>
 
         <RectButton style={[styles.entrar]} onPress={navegarParaEntrar}>
-          <View style={[styles.containerButton, {
-            backgroundColor: "#FFFFFF",
-          }]}>
+          <View
+            style={[
+              styles.containerButton,
+              {
+                backgroundColor: "#FFFFFF",
+              },
+            ]}
+          >
             <Image source={require("../../assets/email-icon.png")} />
-            <Text style={styles.textWhite}>
-              Entrar com E-mail
-        </Text>
+            <Text style={styles.textWhite}>Entrar com E-mail</Text>
           </View>
         </RectButton>
 
         <Text style={styles.conta}>
-          Não tem uma conta? <Text style={styles.cadastre} onPress={navegarParaCadastrar}> Cadastre-se</Text>
+          Não tem uma conta?{" "}
+          <Text style={styles.cadastre} onPress={navegarParaCadastrar}>
+            {" "}
+            Cadastre-se
+          </Text>
         </Text>
         <Text style={styles.ajuda}>Precisando de ajuda?</Text>
         <Text style={styles.faleConosco}>Fale conosco</Text>
       </View>
     </SafeAreaView>
-
   );
 };
 
 const styles = StyleSheet.create({
   droidSafeArea: {
     flex: 1,
-    backgroundColor: '#F2A951',
-    paddingTop: Platform.OS === 'android' ? 25 : 0
+    backgroundColor: "#F2A951",
+    paddingTop: Platform.OS === "android" ? 25 : 0,
   },
   container: {
     flex: 1,
@@ -96,12 +112,12 @@ const styles = StyleSheet.create({
   },
   containerButton: {
     borderRadius: 4,
-    borderColor: '#e1e5e8',
+    borderColor: "#e1e5e8",
     height: 50,
     maxHeight: 50,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
   facebook: {
     color: "#FFFFFF",

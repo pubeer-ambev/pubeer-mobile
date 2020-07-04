@@ -91,21 +91,21 @@ const MenuUsuario = () => {
         <View style={{ marginBottom: 10 }}>
           <Image
             style={styles.imageRodape}
-            source={require("../../assets/cerveja-configuracao.png")}
+            source={require("../../assets/settings.png")}
           />
           <Text style={styles.textosRodape}>Configurações</Text>
         </View>
         <View style={{ marginBottom: 10 }}>
           <Image
             style={styles.imageRodape}
-            source={require("../../assets/cerveja-seguranca.png")}
+            source={require("../../assets/shield.png")}
           />
           <Text style={styles.textosRodape}>Segurança</Text>
         </View>
         <View style={{ marginBottom: 10 }}>
           <Image
             style={styles.imageRodape}
-            source={require("../../assets/cerveja-ajuda.png")}
+            source={require("../../assets/help.png")}
           />
           <Text style={styles.textosRodape}>Ajuda</Text>
         </View>
@@ -184,6 +184,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   imageRodape: {
+    width: 40,
+    height: 40,
     alignSelf: "center",
   },
   textosRodape: {

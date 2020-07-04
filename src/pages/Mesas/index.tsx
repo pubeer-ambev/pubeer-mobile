@@ -10,8 +10,8 @@ import {
   Platform,
 } from "react-native";
 import Constants from "expo-constants";
-import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from "@react-navigation/native"
+import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const MESAS = [
   { id: "1", title: "Corona", quantidade: "8/20" },
@@ -27,7 +27,6 @@ const MESAS = [
 ];
 
 const Mesas = () => {
-
   const navigation = useNavigation();
 
   function handleNavigateBack() {
@@ -37,21 +36,20 @@ const Mesas = () => {
   function handleNavigateChat(chatName: any) {
     navigation.navigate("Chat", {
       chatName,
-    })
+    });
   }
 
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <View style={styles.container}>
-
         <View style={styles.header}>
-          <View style={{ marginLeft: 10,  width: '10%'}}>
+          <View style={{ marginLeft: 10, width: "10%" }}>
             <TouchableOpacity onPress={handleNavigateBack}>
               <AntDesign name="left" size={40} color="#FFFF" />
             </TouchableOpacity>
           </View>
 
-          <View style={{ width: '80%' }}>
+          <View style={{ width: "80%" }}>
             <Text style={styles.title}>Mesas</Text>
           </View>
         </View>
@@ -80,7 +78,9 @@ const Mesas = () => {
                     <Text style={styles.titleQuantidade}>
                       {item.quantidade}
                     </Text>
-                    <TouchableOpacity onPress={() => handleNavigateChat(item.title)} >
+                    <TouchableOpacity
+                      onPress={() => handleNavigateChat(item.title)}
+                    >
                       <Image source={require("../../assets/entrarMesa.png")} />
                     </TouchableOpacity>
                   </View>
@@ -106,15 +106,15 @@ const Mesas = () => {
           </View>
         </View>
       </View>
-    </SafeAreaView >
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   droidSafeArea: {
     flex: 1,
-    backgroundColor: '#F2A951',
-    paddingTop: Platform.OS === 'android' ? 25 : 0
+    backgroundColor: "#F2A951",
+    paddingTop: Platform.OS === "android" ? 25 : 0,
   },
   container: {
     flex: 1,
@@ -124,14 +124,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#F2A951",
     width: "100%",
     height: 80,
-    flexDirection: 'row',
-    alignItems: 'center'
+    flexDirection: "row",
+    alignItems: "center",
   },
   title: {
     color: "#FFF",
     fontSize: 34,
     fontWeight: "bold",
-    textAlign: 'center'
+    textAlign: "center",
   },
   mesasDisponiveis: {
     backgroundColor: "#F2A951",
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   titleQuantidade: {
     fontSize: 16,
     fontWeight: "bold",
-    marginRight: 20
+    marginRight: 20,
   },
   rodape: {
     backgroundColor: "#F2A951",
@@ -174,6 +174,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   imageRodape: {
+    width: 40,
+    height: 40,
     alignSelf: "center",
   },
   textosRodape: {
