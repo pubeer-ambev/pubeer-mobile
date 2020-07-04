@@ -2,6 +2,8 @@
   <img alt="Pubeer" src="./src/assets/login-entrar.png" width="250px" />
   <br/>
 </h1>
+</br>
+
 ## 💻 Projeto
 O Pubeer é um aplicativo desenvolvido com o intuito de reunir pessoas e simular um bar de modo online.
 Ao abrir o aplicativo, o usuário tem opções de:
