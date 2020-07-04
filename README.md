@@ -10,7 +10,6 @@ Ao abrir o aplicativo, o usuário tem opções de:
     - Solicitar sua bebida no Ze delivey pelo Pubeer;
 
 Seu lema é, "Reiventando o conceito do bar...".
-
 <br />
 <p align="center">
 </p>
