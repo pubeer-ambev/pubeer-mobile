@@ -19,6 +19,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Expo](https://expo.io/)
 
 </br>
+
 ## :hammer: Ferramentas
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Figma](https://www.figma.com/)
