@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   View,
   SafeAreaView,
-  Platform,
   StyleSheet,
   TouchableOpacity,
   Text,
@@ -194,14 +193,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F6EDE3",
   },
-  header: {
-    backgroundColor: "#F2A951",
-    width: "100%",
-    height: 80,
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-  },
   more: {
     width: 40,
     height: 40,
@@ -220,14 +211,6 @@ const styles = StyleSheet.create({
     height: "60%",
     borderColor: "#B5A593",
     borderWidth: 2,
-  },
-  rodape: {
-    backgroundColor: "#F6EDE3",
-    width: "100%",
-    padding: 10,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
   },
   sendingContainer: {
     justifyContent: "center",
