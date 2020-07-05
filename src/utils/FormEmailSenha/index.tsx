@@ -10,14 +10,14 @@ const FormEmailSenha = () => {
       <Text style={styles.titleInput}>E-mail:</Text>
       <TextInput style={styles.input} />
       <Text style={[styles.titleInput, styles.titleInputSenha]}>Senha:</Text>
-      <TextInput style={styles.input} />
+      <TextInput secureTextEntry={true} style={styles.input} />
     </>
   );
 };
 
 const styles = StyleSheet.create({
   logo: {
-    padding: 14,
+    padding: 24,
   },
   titleInput: {
     color: "#F2A951",

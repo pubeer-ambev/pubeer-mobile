@@ -188,10 +188,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   containerImage: {
-    padding: 10,
+    padding: 15,
     borderColor: "#8F5236",
     borderWidth: 1,
-    margin: 16,
+    margin: 24,
     width: 90,
     height: 80,
     borderRadius: 20,

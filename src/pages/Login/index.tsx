@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000",
   },
   logo: {
-    padding: 14,
+    padding: 24,
   },
   slogan: {
     fontSize: 20,
