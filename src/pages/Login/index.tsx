@@ -21,7 +21,7 @@ const Login = () => {
         <View style={styles.logo}>
           <Image source={require("../../assets/logo-login.png")} />
           <View>
-            <Text style={styles.slogan}>Reiventando o conceito do bar</Text>
+            <Text style={styles.slogan}>Reinventando o conceito de bar</Text>
           </View>
         </View>
 
