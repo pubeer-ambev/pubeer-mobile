@@ -24,6 +24,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React Native](https://facebook.github.io/react-native/)
 - [Expo](https://expo.io/)
 - [Dialogflow API](https://cloud.google.com/dialogflow/docs/reference/rest/v2-overview)
+- [Styled Components](https://styled-components.com/)
 </br>
 
 ## :hammer: Ferramentas
