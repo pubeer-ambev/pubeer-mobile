@@ -36,14 +36,14 @@ const Chat = () => {
     },
   ]);
 
-  // useEffect(() => {
-  //   Dialogflow_V2.setConfiguration(
-  //     dialogflowConfig.client_email,
-  //     dialogflowConfig.private_key,
-  //     Dialogflow_V2.LANG_PORTUGUESE_BRAZIL,
-  //     dialogflowConfig.project_id
-  //   );
-  // }, []);
+  useEffect(() => {
+    Dialogflow_V2.setConfiguration(
+      dialogflowConfig.client_email,
+      dialogflowConfig.private_key,
+      Dialogflow_V2.LANG_PORTUGUESE_BRAZIL,
+      dialogflowConfig.project_id
+    );
+  }, []);
 
   const navigation = useNavigation();
 
