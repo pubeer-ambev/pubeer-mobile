@@ -17,7 +17,7 @@ const FormEmailSenha = () => {
 
 const styles = StyleSheet.create({
   logo: {
-    padding: 24,
+    alignItems: 'center'
   },
   titleInput: {
     color: "#F2A951",
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   input: {
-    height: 55,
-    maxHeight: 55,
+    height: 50,
+    maxHeight: 50,
     backgroundColor: "#E7D3BC",
     borderRadius: 10,
     fontSize: 16,

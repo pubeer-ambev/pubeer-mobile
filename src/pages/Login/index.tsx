@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  SafeAreaView,
-} from "react-native";
+import { View, Text, StyleSheet, Image, SafeAreaView } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import { droidSafeArea } from "../../styles";
@@ -27,11 +21,11 @@ const Login = () => {
         <View style={styles.logo}>
           <Image source={require("../../assets/logo-login.png")} />
           <View>
-            <Text style={styles.slogan}>Recriando o seu conceito de bar</Text>
+            <Text style={styles.slogan}>Reiventando o conceito do bar</Text>
           </View>
         </View>
-        
-        <RectButton style={[styles.entrar]}>
+
+        <RectButton style={[styles.entrar, { marginTop: 15 }]}>
           <View
             style={[
               styles.containerButton,
@@ -96,7 +90,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000",
   },
   logo: {
-    padding: 24,
+    alignItems: "center",
   },
   slogan: {
     fontSize: 20,
