@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Image, Text, StyleSheet } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
   },
   main: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 

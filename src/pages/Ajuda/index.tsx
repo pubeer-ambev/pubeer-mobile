@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   View,
   SafeAreaView,
-  Platform,
   StyleSheet,
   TouchableOpacity,
   Text,
@@ -15,6 +14,8 @@ import { useNavigation } from "@react-navigation/native";
 import { GiftedChat, Send, Bubble } from "react-native-gifted-chat";
 import { Dialogflow_V2 } from "react-native-dialogflow";
 import { dialogflowConfig } from "../../../config";
+import { droidSafeArea } from "../../styles";
+import Header from "../../components/header";
 
 const BOT_USER = {
   _id: 2,
@@ -131,7 +132,7 @@ const Ajuda = () => {
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
+        <Header>
           <View style={{ width: "10%" }}>
             <TouchableOpacity onPress={handleNavigateBack}>
               <AntDesign name="left" size={40} color="#FFFF" />
@@ -148,7 +149,7 @@ const Ajuda = () => {
               source={require("../../assets/more.png")}
             />
           </View>
-        </View>
+        </Header>
         <View style={{ flex: 1 }}>
           <GiftedChat
             placeholder={"Nos conte seu problema"}
@@ -172,11 +173,7 @@ const Ajuda = () => {
 };
 
 const styles = StyleSheet.create({
-  droidSafeArea: {
-    flex: 1,
-    backgroundColor: "#F2A951",
-    paddingTop: Platform.OS === "android" ? 25 : 0,
-  },
+  droidSafeArea,
   loadingContainer: {
     flex: 1,
     alignItems: "center",
@@ -185,14 +182,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F6EDE3",
-  },
-  header: {
-    backgroundColor: "#F2A951",
-    width: "100%",
-    height: 80,
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
   },
   more: {
     width: 40,
@@ -212,14 +201,6 @@ const styles = StyleSheet.create({
     height: "60%",
     borderColor: "#B5A593",
     borderWidth: 2,
-  },
-  rodape: {
-    backgroundColor: "#F6EDE3",
-    width: "100%",
-    padding: 10,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
   },
   sendingContainer: {
     justifyContent: "center",

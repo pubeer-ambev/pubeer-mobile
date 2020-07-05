@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, CheckBox, Platform, SafeAreaView } from "react-
 import { RectButton } from "react-native-gesture-handler";
 import FormEmailSenha from "../../utils/FormEmailSenha";
 import { useNavigation } from "@react-navigation/native";
+import { droidSafeArea } from "../../styles";
 
 const Entrar = () => {
   const [isSelected, setSelection] = useState(false);
@@ -33,11 +34,7 @@ const Entrar = () => {
 };
 
 const styles = StyleSheet.create({
-  droidSafeArea: {
-    flex: 1,
-    backgroundColor: '#F2A951',
-    paddingTop: Platform.OS === 'android' ? 25 : 0
-  },
+  droidSafeArea,
   container: {
     flex: 1,
     padding: 20,

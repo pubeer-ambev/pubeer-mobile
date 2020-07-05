@@ -15,6 +15,8 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { GiftedChat, Send, Bubble } from "react-native-gifted-chat";
 import { Dialogflow_V2 } from "react-native-dialogflow";
 import { dialogflowConfig } from "../../../config";
+import { droidSafeArea } from "../../styles";
+import Header from "../../components/header";
 
 const BOT_USER = {
   _id: 2,
@@ -139,7 +141,7 @@ const Chat = () => {
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
+        <Header>
           <View style={{ width: "10%" }}>
             <TouchableOpacity onPress={handleNavigateBack}>
               <AntDesign name="left" size={40} color="#FFFF" />
@@ -156,7 +158,8 @@ const Chat = () => {
               source={require("../../assets/more.png")}
             />
           </View>
-        </View>
+        </Header>
+
         <View style={{ flex: 1 }}>
           <GiftedChat
             placeholder={"Fale com a galera"}
@@ -181,11 +184,7 @@ const Chat = () => {
 };
 
 const styles = StyleSheet.create({
-  droidSafeArea: {
-    flex: 1,
-    backgroundColor: "#F2A951",
-    paddingTop: Platform.OS === "android" ? 25 : 0,
-  },
+  droidSafeArea,
   loadingContainer: {
     flex: 1,
     alignItems: "center",
@@ -201,7 +200,7 @@ const styles = StyleSheet.create({
     height: 80,
     flexDirection: "row",
     alignItems: "center",
-    padding: 10
+    padding: 10,
   },
   more: {
     width: 40,

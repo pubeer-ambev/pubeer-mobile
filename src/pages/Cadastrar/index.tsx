@@ -1,7 +1,8 @@
 import React from "react";
-import { View, StyleSheet, Text, Platform, SafeAreaView, Image } from "react-native";
+import { View, StyleSheet, Text, SafeAreaView } from "react-native";
 import FormEmailSenha from "../../utils/FormEmailSenha";
 import { RectButton } from "react-native-gesture-handler";
+import { droidSafeArea } from "../../styles";
 
 const Cadastrar = () => {
   function navegarParaEntrar() {
@@ -26,11 +27,7 @@ const styles = StyleSheet.create({
   logo: {
     padding: 14,
   },
-  droidSafeArea: {
-    flex: 1,
-    backgroundColor: '#F2A951',
-    paddingTop: Platform.OS === 'android' ? 25 : 0
-  },
+  droidSafeArea,
   container: {
     flex: 1,
     padding: 20,

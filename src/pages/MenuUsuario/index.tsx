@@ -5,10 +5,12 @@ import {
   Text,
   Image,
   SafeAreaView,
-  Platform,
   TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { droidSafeArea } from "../../styles";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 const MenuUsuario = () => {
   const navigation = useNavigation();
@@ -28,7 +30,7 @@ const MenuUsuario = () => {
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
+        <Header>
           <View>
             <Image
               style={styles.imageUsuario}
@@ -39,7 +41,7 @@ const MenuUsuario = () => {
             <Text style={styles.nomeUsuario}>Olá, Maria</Text>
             <Text style={styles.tituloUsuario}>Mestre Cervejeiro</Text>
           </View>
-        </View>
+        </Header>
 
         <View style={styles.tampinhas}>
           <Text style={styles.textos}>5654</Text>
@@ -111,7 +113,7 @@ const MenuUsuario = () => {
         </View>
       </View>
 
-      <View style={styles.rodape}>
+      <Footer>
         <View style={{ marginBottom: 10 }}>
           <Image
             style={styles.imageRodape}
@@ -135,26 +137,16 @@ const MenuUsuario = () => {
           </TouchableOpacity>
           <Text style={styles.textosRodape}>Ajuda</Text>
         </View>
-      </View>
+      </Footer>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  droidSafeArea: {
-    flex: 1,
-    backgroundColor: "#F2A951",
-    paddingTop: Platform.OS === "android" ? 25 : 0,
-  },
+  droidSafeArea,
   container: {
     flex: 1,
     backgroundColor: "#000",
-  },
-  header: {
-    backgroundColor: "#F2A951",
-    width: "100%",
-    height: 80,
-    flexDirection: "row",
   },
   imageUsuario: {
     marginLeft: 35,
@@ -218,15 +210,6 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     alignSelf: "center",
-  },
-  rodape: {
-    backgroundColor: "#F2A951",
-    width: "100%",
-    height: 80,
-    paddingTop: 15,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
   },
   imageRodape: {
     width: 40,

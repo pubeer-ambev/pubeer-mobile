@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Text,
   StyleSheet,
@@ -7,11 +7,13 @@ import {
   FlatList,
   SafeAreaView,
   Image,
-  Platform,
 } from "react-native";
 import Constants from "expo-constants";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { droidSafeArea } from "../../styles";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 const MESAS = [
   { id: "1", title: "Corona", quantidade: "8/20" },
@@ -42,7 +44,7 @@ const Mesas = () => {
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
+        <Header>
           <View style={{ marginLeft: 10, width: "10%" }}>
             <TouchableOpacity onPress={handleNavigateBack}>
               <AntDesign name="left" size={40} color="#FFFF" />
@@ -52,7 +54,7 @@ const Mesas = () => {
           <View style={{ width: "80%" }}>
             <Text style={styles.title}>Mesas</Text>
           </View>
-        </View>
+        </Header>
 
         <View style={{ height: 20 }}></View>
 
@@ -89,7 +91,7 @@ const Mesas = () => {
             }}
           />
         </SafeAreaView>
-        <View style={styles.rodape}>
+        <Footer>
           <View style={{ marginBottom: 10 }}>
             <Image
               style={styles.imageRodape}
@@ -104,28 +106,17 @@ const Mesas = () => {
             />
             <Text style={styles.textosRodape}>Convidar para mesa</Text>
           </View>
-        </View>
+        </Footer>
       </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  droidSafeArea: {
-    flex: 1,
-    backgroundColor: "#F2A951",
-    paddingTop: Platform.OS === "android" ? 25 : 0,
-  },
+  droidSafeArea,
   container: {
     flex: 1,
     backgroundColor: "#000",
-  },
-  header: {
-    backgroundColor: "#F2A951",
-    width: "100%",
-    height: 80,
-    flexDirection: "row",
-    alignItems: "center",
   },
   title: {
     color: "#FFF",
@@ -163,15 +154,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginRight: 20,
-  },
-  rodape: {
-    backgroundColor: "#F2A951",
-    width: "100%",
-    height: 80,
-    paddingTop: 15,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
   },
   imageRodape: {
     width: 40,

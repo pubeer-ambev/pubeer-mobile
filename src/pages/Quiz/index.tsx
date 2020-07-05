@@ -6,10 +6,12 @@ import {
   Image,
   TouchableOpacity,
   SafeAreaView,
-  Platform,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+import { droidSafeArea } from "../../styles";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 const RESPOSTA_CERTA = 2;
 
@@ -106,7 +108,7 @@ const Quiz = () => {
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <View style={styles.container}>
-        <View style={styles.header}>
+        <Header>
           <View style={{ marginLeft: 10, width: "10%" }}>
             <TouchableOpacity onPress={handleNavigateBack}>
               <AntDesign name="left" size={40} color="#FFFF" />
@@ -115,7 +117,7 @@ const Quiz = () => {
           <View style={{ width: "80%" }}>
             <Text style={styles.title}>Quiz</Text>
           </View>
-        </View>
+        </Header>
 
         <View style={styles.main}>
           <View>
@@ -167,7 +169,7 @@ const Quiz = () => {
         </View>
       </View>
 
-      <View style={styles.rodape}>
+      <Footer>
         <View style={{ marginBottom: 10 }}>
           <TouchableOpacity onPress={handleRespostaAjuda}>
             <Image
@@ -197,27 +199,16 @@ const Quiz = () => {
           </TouchableOpacity>
           <Text style={[styles.textosRodape]}>Aleatório</Text>
         </View>
-      </View>
+      </Footer>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  droidSafeArea: {
-    flex: 1,
-    backgroundColor: "#F2A951",
-    paddingTop: Platform.OS === "android" ? 25 : 0,
-  },
+  droidSafeArea,
   container: {
     flex: 1,
     backgroundColor: "#000",
-  },
-  header: {
-    backgroundColor: "#F2A951",
-    width: "100%",
-    height: 80,
-    flexDirection: "row",
-    alignItems: "center",
   },
   title: {
     color: "#FFF",
@@ -247,15 +238,6 @@ const styles = StyleSheet.create({
   alternativas: {
     textAlign: "center",
     fontSize: 20,
-  },
-  rodape: {
-    backgroundColor: "#F2A951",
-    width: "100%",
-    height: 80,
-    paddingTop: 15,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
   },
   imageRodape: {
     width: 40,

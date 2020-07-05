@@ -5,10 +5,10 @@ import {
   StyleSheet,
   Image,
   SafeAreaView,
-  Platform,
 } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
+import { droidSafeArea } from "../../styles";
 
 const Login = () => {
   const navigation = useNavigation();
@@ -88,11 +88,7 @@ const Login = () => {
 };
 
 const styles = StyleSheet.create({
-  droidSafeArea: {
-    flex: 1,
-    backgroundColor: "#F2A951",
-    paddingTop: Platform.OS === "android" ? 25 : 0,
-  },
+  droidSafeArea,
   container: {
     flex: 1,
     padding: 20,
